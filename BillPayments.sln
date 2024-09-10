@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D2DFC239-BD6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillPayments.Core", "BillPayments.Core\BillPayments.Core.csproj", "{7AD829A4-E2F0-42EB-856C-8306F869819B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillPayments.Infrastructure", "BillPayments.Infrastructure\BillPayments.Infrastructure.csproj", "{15A58266-0F38-4E8E-BD94-28E7C391DBFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{7AD829A4-E2F0-42EB-856C-8306F869819B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AD829A4-E2F0-42EB-856C-8306F869819B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AD829A4-E2F0-42EB-856C-8306F869819B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15A58266-0F38-4E8E-BD94-28E7C391DBFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15A58266-0F38-4E8E-BD94-28E7C391DBFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15A58266-0F38-4E8E-BD94-28E7C391DBFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15A58266-0F38-4E8E-BD94-28E7C391DBFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +36,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{52F84049-B196-4847-8FBD-EA22CE5D6DB1} = {D2DFC239-BD64-439C-A5ED-CAF0A1512F4B}
 		{7AD829A4-E2F0-42EB-856C-8306F869819B} = {D2DFC239-BD64-439C-A5ED-CAF0A1512F4B}
+		{15A58266-0F38-4E8E-BD94-28E7C391DBFD} = {D2DFC239-BD64-439C-A5ED-CAF0A1512F4B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4BDCB7E8-EB35-43CE-8B68-95B62201FD34}
