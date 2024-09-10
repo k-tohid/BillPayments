@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillPayments.API", "BillPayments.API\BillPayments.API.csproj", "{52F84049-B196-4847-8FBD-EA22CE5D6DB1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D2DFC239-BD64-439C-A5ED-CAF0A1512F4B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52F84049-B196-4847-8FBD-EA22CE5D6DB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52F84049-B196-4847-8FBD-EA22CE5D6DB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52F84049-B196-4847-8FBD-EA22CE5D6DB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52F84049-B196-4847-8FBD-EA22CE5D6DB1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{52F84049-B196-4847-8FBD-EA22CE5D6DB1} = {D2DFC239-BD64-439C-A5ED-CAF0A1512F4B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4BDCB7E8-EB35-43CE-8B68-95B62201FD34}
+	EndGlobalSection
+EndGlobal
