@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BillPayments.Application.Interfaces
+namespace BillPayments.Application.Interfaces.IServices
 {
     public interface IJwtService
     {

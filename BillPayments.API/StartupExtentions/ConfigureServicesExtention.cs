@@ -1,4 +1,4 @@
-﻿using BillPayments.Application.Interfaces;
+﻿using BillPayments.Application.Interfaces.IServices;
 using BillPayments.Application.Services;
 using BillPayments.Core.Entities;
 using BillPayments.Infrastructure.DbContext;

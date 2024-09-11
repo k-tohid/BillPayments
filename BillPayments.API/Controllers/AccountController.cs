@@ -1,5 +1,5 @@
 ﻿using BillPayments.Application.DTOs;
-using BillPayments.Application.Interfaces;
+using BillPayments.Application.Interfaces.IServices;
 using BillPayments.Core.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
