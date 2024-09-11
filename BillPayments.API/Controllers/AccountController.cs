@@ -57,7 +57,6 @@ namespace BillPayments.API.Controllers
         #endregion
 
 
-
         #region Login
         /// <summary>
         /// endpoint to login users
@@ -87,6 +86,34 @@ namespace BillPayments.API.Controllers
         }
 
         #endregion
+
+
+        #region Delete User
+
+        [HttpDelete("Delete")]
+        public async Task<IActionResult> DeleteUser(LoginDTO loginDTO)
+        {
+            var user = await _userManager.FindByNameAsync(loginDTO.UserName);
+
+            if (user == null)
+            {
+                return Problem("No user with that userName");
+            }
+
+            var result = await _signInManager.CheckPasswordSignInAsync(user, loginDTO.Password, lockoutOnFailure: false);
+
+            if (result.Succeeded)
+            {
+                await _userManager.DeleteAsync(user);
+
+                return NoContent();
+            }
+
+            return Problem("Invalid username or password");
+        }
+
+        #endregion
+
 
         [Authorize]
         [HttpGet("AdminHello")]
