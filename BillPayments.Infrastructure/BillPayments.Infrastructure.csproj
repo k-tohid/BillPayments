@@ -24,4 +24,8 @@
     <ProjectReference Include="..\BillPayments.Core\BillPayments.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
 </Project>

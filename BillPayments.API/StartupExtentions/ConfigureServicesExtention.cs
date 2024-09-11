@@ -1,8 +1,13 @@
-﻿using BillPayments.Core.Entities;
+﻿using BillPayments.Application.Interfaces;
+using BillPayments.Application.Services;
+using BillPayments.Core.Entities;
 using BillPayments.Infrastructure.DbContext;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace BillPayments.API.StartupExtentions
 {
@@ -12,6 +17,9 @@ namespace BillPayments.API.StartupExtentions
             this IServiceCollection services,
             IConfiguration configuration)
         {
+
+            // Services
+            services.AddScoped<IJwtService, JwtService>();
 
             // DbContext
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -35,6 +43,26 @@ namespace BillPayments.API.StartupExtentions
                 .AddUserStore<UserStore<ApplicationUser, ApplicationRole, ApplicationDbContext, int>>()
                 .AddRoleStore<RoleStore<ApplicationRole, ApplicationDbContext, int>>();
 
+
+            // jwt
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = configuration["Jwt:Issuer"],
+                        ValidAudience = configuration["Jwt:Audience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]))
+                    };
+                });
 
             return services;
         }
