@@ -29,6 +29,7 @@ namespace BillPayments.Application.Services
             var expirattionTime = DateTime.UtcNow.AddMinutes(jwtExpirationDurtion);
 
             Claim[] claims = new Claim[] {
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };

@@ -1,7 +1,9 @@
-﻿using BillPayments.Application.Interfaces.IServices;
+﻿using BillPayments.Application.Interfaces.IRepositories;
+using BillPayments.Application.Interfaces.IServices;
 using BillPayments.Application.Services;
 using BillPayments.Core.Entities;
 using BillPayments.Infrastructure.DbContext;
+using BillPayments.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -18,8 +20,13 @@ namespace BillPayments.API.StartupExtentions
             IConfiguration configuration)
         {
 
+            services.AddHttpContextAccessor();
+
             // Services
             services.AddScoped<IJwtService, JwtService>();
+
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<ICategoryService, CategoryService>();
 
             // DbContext
             services.AddDbContext<ApplicationDbContext>(options =>
