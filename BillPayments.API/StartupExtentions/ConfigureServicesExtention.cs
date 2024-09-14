@@ -22,11 +22,16 @@ namespace BillPayments.API.StartupExtentions
 
             services.AddHttpContextAccessor();
 
-            // Services
+            // ********************************* Services *********************************
             services.AddScoped<IJwtService, JwtService>();
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ICategoryService, CategoryService>();
+
+            services.AddScoped<IDocumentRepository, DocumentRepository>();
+            services.AddScoped<IDocumentService, DocumentService>();
+            // ****************************************************************************
+
 
             // DbContext
             services.AddDbContext<ApplicationDbContext>(options =>

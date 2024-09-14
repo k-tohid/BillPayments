@@ -23,4 +23,8 @@
     <ProjectReference Include="..\BillPayments.Infrastructure\BillPayments.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\uploads\" />
+  </ItemGroup>
+
 </Project>
