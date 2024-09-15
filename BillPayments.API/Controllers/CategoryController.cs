@@ -42,6 +42,13 @@ namespace BillPayments.API.Controllers
         [HttpPost]
         public async Task<IActionResult> PostCategory(CreateCategoryDTO dto)
         {
+            if (dto.ParentId != null)
+            {
+                var categoryExists = await _categoryService.GetCategoryByIdAsync(dto.ParentId.Value);
+                if (categoryExists == null)
+                    return Problem("No Category Exists with that ParentId.");
+            }
+
             var result = await _categoryService.CreateCategoryAsync(dto);
 
             if (result.IsSuccess)
