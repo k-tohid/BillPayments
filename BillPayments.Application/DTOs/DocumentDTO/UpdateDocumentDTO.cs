@@ -16,13 +16,6 @@ namespace BillPayments.Application.DTOs.DocumentDTO
         public string? Description { get; set; }
 
 
-
         public ICollection<string> Attachments { get; set; }
-
-
-        public DateTime? ModifiedAt { get; set; }
-
-        [ForeignKey(nameof(ApplicationUser))]
-        public int? ModifiedById { get; set; }
     }
 }

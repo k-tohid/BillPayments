@@ -42,6 +42,11 @@ namespace BillPayments.API.Controllers
         [HttpPost]
         public async Task<IActionResult> PostCategory(CreateCategoryDTO dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             var result = await _categoryService.CreateCategoryAsync(dto);
 
             if (result.IsSuccess)
@@ -54,8 +59,13 @@ namespace BillPayments.API.Controllers
 
 
         [HttpPatch("{id}")]
-        public async Task<IActionResult> PutCategory(UpdateCategoryDTO dto)
+        public async Task<IActionResult> PatchCategory(UpdateCategoryDTO dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             var result = await _categoryService.UpdateCategoryAsync(dto);
 
             if (result.IsSuccess)

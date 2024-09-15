@@ -40,6 +40,14 @@ namespace BillPayments.Application.Services
 
         public async Task<ServiceResult> CreateCategoryAsync(CreateCategoryDTO dto)
         {
+            if (dto.ParentId != null)
+            {
+                var categoryExists = await GetCategoryByIdAsync(dto.ParentId.Value);
+
+                if (categoryExists == null)
+                    return ServiceResult.Failure("No Category Exists with that ParentId.");
+            }
+
             var currentUserId = GetCurrentUserId();
 
             var category = new Category()
@@ -88,6 +96,10 @@ namespace BillPayments.Application.Services
 
         public async Task<ServiceResult> UpdateCategoryAsync(UpdateCategoryDTO dto)
         {
+            var existingCategory = await _categoryRepository.GetCategoryByIdAsync(dto.Id);
+            if (existingCategory == null)
+                return ServiceResult.Failure("No such Category exist");
+
             var currentUserId = GetCurrentUserId();
 
             var category = new Category()

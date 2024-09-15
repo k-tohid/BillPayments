@@ -15,9 +15,5 @@ namespace BillPayments.Application.DTOs.CategoryDTO
         public bool IsActive { get; set; }
         public string? Thumbnail { get; set; }
         public int? ParentId { get; set; }
-
-        public DateTime? ModifiedAt { get; set; }
-
-        public int? ModifiedById { get; set; }
     }
 }

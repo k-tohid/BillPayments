@@ -98,10 +98,19 @@ namespace BillPayments.Application.Services
             if (document == null)
                 return ServiceResult.Failure("No such document exist");
 
-            document.ModifiedAt = DateTime.UtcNow;
-            document.ModifiedById = currentUser;
 
-            _documentRepository.UpdateDocument(document);
+            var updtedDocument = new Document()
+            {
+                Id = dto.Id,
+                CategoryId = dto.CategoryId,
+                Title = dto.Title,
+                Description = dto.Description,
+                Attachments = dto.Attachments,
+                ModifiedAt = DateTime.UtcNow,
+                ModifiedById = currentUser
+            };
+
+            _documentRepository.UpdateDocument(updtedDocument);
 
             var updateResult = await _documentRepository.SaveChangesAsync();
 
