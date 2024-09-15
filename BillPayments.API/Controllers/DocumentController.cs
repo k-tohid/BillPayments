@@ -13,10 +13,12 @@ namespace BillPayments.API.Controllers
     public class DocumentController : ControllerBase
     {
         private readonly IDocumentService _documentService;
+        private readonly ICategoryService _categoryService;
 
-        public DocumentController(IDocumentService documentService)
+        public DocumentController(IDocumentService documentService, ICategoryService categoryService)
         {
             _documentService = documentService;
+            _categoryService = categoryService;
         }
 
 
@@ -55,6 +57,11 @@ namespace BillPayments.API.Controllers
         [HttpPost]
         public async Task<IActionResult> PostDocument(CreateDocumentDTO dto)
         {
+            var categoryExist = await _categoryService.GetCategoryByIdAsync(dto.CategoryId);
+
+            if (categoryExist == null)
+                return Problem("No category exists with that id");
+            
             var attachmentFileNames = new List<string>();
 
             if (dto.AttachFiles != null && dto.AttachFiles.Any())
