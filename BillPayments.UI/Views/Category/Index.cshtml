@@ -1,0 +1,10 @@
+﻿@model IEnumerable<ReadCategoryDTO>
+
+<ul>
+    @foreach (var category in Model.Where(c => c.ParentId == null))  // Only display root categories
+    {
+        @await Html.PartialAsync("_SubCategoryPartial", category)
+    }
+</ul>
+
+

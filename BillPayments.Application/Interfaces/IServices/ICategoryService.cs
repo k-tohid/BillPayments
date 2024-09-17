@@ -13,7 +13,7 @@ namespace BillPayments.Application.Interfaces.IServices
     {
         Task<ServiceResult> CreateCategoryAsync(CreateCategoryDTO dto);
         Task<ReadCategoryDTO?> GetCategoryByIdAsync(int id);
-        Task<IEnumerable<ReadCategoryDTO>> GetAllCategoriesAsync();
+        Task<IEnumerable<ReadCategoryDTO>> GetAllCategoriesAsync(CancellationToken cancellation);
         Task<ServiceResult> UpdateCategoryAsync(UpdateCategoryDTO dto);
         Task<ServiceResult> DeleteCategoryAsync(int id);
 

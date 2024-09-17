@@ -11,7 +11,7 @@ namespace BillPayments.Application.Interfaces.IRepositories
     {
         Task<int> SaveChangesAsync();
         Task<Category?> GetCategoryByIdAsync(int id);
-        Task<IEnumerable<Category>> GetAllCategoriesAsync();
+        Task<IEnumerable<Category>> GetAllCategoriesAsync(CancellationToken cancellation);
         Task CreateCategoryAsync(Category category);
         void UpdateCategoryAsync(Category category);
         void DeleteCategoryAsync(Category category);

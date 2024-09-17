@@ -14,8 +14,6 @@ namespace BillPayments.Application.DTOs.CategoryDTO
         public bool IsActive { get; set; }
         public string? Thumbnail { get; set; }
 
-
-        [ForeignKey(nameof(Category))]
         public int? ParentId { get; set; }
 
     }

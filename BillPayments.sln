@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillPayments.API", "BillPayments.API\BillPayments.API.csproj", "{52F84049-B196-4847-8FBD-EA22CE5D6DB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillPayments.API", "BillPayments.API\BillPayments.API.csproj", "{52F84049-B196-4847-8FBD-EA22CE5D6DB1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D2DFC239-BD64-439C-A5ED-CAF0A1512F4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillPayments.Core", "BillPayments.Core\BillPayments.Core.csproj", "{7AD829A4-E2F0-42EB-856C-8306F869819B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillPayments.Core", "BillPayments.Core\BillPayments.Core.csproj", "{7AD829A4-E2F0-42EB-856C-8306F869819B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillPayments.Infrastructure", "BillPayments.Infrastructure\BillPayments.Infrastructure.csproj", "{15A58266-0F38-4E8E-BD94-28E7C391DBFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillPayments.Infrastructure", "BillPayments.Infrastructure\BillPayments.Infrastructure.csproj", "{15A58266-0F38-4E8E-BD94-28E7C391DBFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillPayments.Application", "BillPayments.Application\BillPayments.Application.csproj", "{9E3599AC-425F-4DAB-BF52-29A4D408415F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillPayments.Application", "BillPayments.Application\BillPayments.Application.csproj", "{9E3599AC-425F-4DAB-BF52-29A4D408415F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillPayments.UI", "BillPayments.UI\BillPayments.UI.csproj", "{13A1B7E6-05D2-426B-B499-A154F1936567}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{9E3599AC-425F-4DAB-BF52-29A4D408415F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E3599AC-425F-4DAB-BF52-29A4D408415F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E3599AC-425F-4DAB-BF52-29A4D408415F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13A1B7E6-05D2-426B-B499-A154F1936567}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13A1B7E6-05D2-426B-B499-A154F1936567}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13A1B7E6-05D2-426B-B499-A154F1936567}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13A1B7E6-05D2-426B-B499-A154F1936567}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{7AD829A4-E2F0-42EB-856C-8306F869819B} = {D2DFC239-BD64-439C-A5ED-CAF0A1512F4B}
 		{15A58266-0F38-4E8E-BD94-28E7C391DBFD} = {D2DFC239-BD64-439C-A5ED-CAF0A1512F4B}
 		{9E3599AC-425F-4DAB-BF52-29A4D408415F} = {D2DFC239-BD64-439C-A5ED-CAF0A1512F4B}
+		{13A1B7E6-05D2-426B-B499-A154F1936567} = {D2DFC239-BD64-439C-A5ED-CAF0A1512F4B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4BDCB7E8-EB35-43CE-8B68-95B62201FD34}

@@ -18,12 +18,17 @@ namespace BillPayments.Application.Services
     {
         private readonly IDocumentRepository _documentRepository;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly ICategoryService _categoryService;
 
 
-        public DocumentService(IDocumentRepository documentRepository, IHttpContextAccessor httpContextAccessor)
+        public DocumentService(
+            IDocumentRepository documentRepository, 
+            IHttpContextAccessor httpContextAccessor, 
+            ICategoryService categoryService)
         {
             _documentRepository = documentRepository;
             _httpContextAccessor = httpContextAccessor;
+            _categoryService = categoryService;
         }
 
         private int GetCurrentUserId()
@@ -39,6 +44,12 @@ namespace BillPayments.Application.Services
 
         public async Task<ServiceResult> CreateDocument(CreateDocumentDTO dto)
         {
+            var category = await _categoryService.GetCategoryByIdAsync(dto.CategoryId);
+            if (category == null)
+            {
+                return ServiceResult.Failure("The specified category does not exist.");
+            }
+
             var currentUser = GetCurrentUserId();
 
             var document = new Document()

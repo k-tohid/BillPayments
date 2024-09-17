@@ -87,9 +87,9 @@ namespace BillPayments.Application.Services
         }
 
 
-        public async Task<IEnumerable<ReadCategoryDTO>> GetAllCategoriesAsync()
+        public async Task<IEnumerable<ReadCategoryDTO>> GetAllCategoriesAsync(CancellationToken cancellation)
         {
-            var categories = await _categoryRepository.GetAllCategoriesAsync();
+            var categories = await _categoryRepository.GetAllCategoriesAsync(cancellation);
             return categories.ToReadCategoryDTO();
         }
 
@@ -102,18 +102,16 @@ namespace BillPayments.Application.Services
 
             var currentUserId = GetCurrentUserId();
 
-            var category = new Category()
-            {
-                Id = dto.Id,
-                Title = dto.Title,
-                IsActive = dto.IsActive,
-                Thumbnail = dto.Thumbnail,
-                ModifiedById = currentUserId,
-                ParentId = dto.ParentId,
-                ModifiedAt = DateTime.UtcNow,
-            };
+            existingCategory.Id = dto.Id;
+            existingCategory.Title = dto.Title;
+            existingCategory.IsActive = dto.IsActive;
+            existingCategory.Thumbnail = dto.Thumbnail;
+            existingCategory.ModifiedById = currentUserId;
+            existingCategory.ParentId = dto.ParentId;
+            existingCategory.ModifiedAt = DateTime.UtcNow;
 
-            _categoryRepository.UpdateCategoryAsync(category);
+
+            _categoryRepository.UpdateCategoryAsync(existingCategory);
 
             var updateResult = await _categoryRepository.SaveChangesAsync();
 
