@@ -34,15 +34,16 @@ namespace BillPayments.Infrastructure.Repositories
         // Get Category by Id
         public async Task<Category?> GetCategoryByIdAsync(int id)
         {
-            return await _db.Categories.Include(c => c.SubCategories).FirstOrDefaultAsync(c => c.Id == id);
+            return await _db.Categories.
+                Include(c => c.SubCategories).AsSplitQuery().FirstOrDefaultAsync(c => c.Id == id);
         }
 
         // Get All Categories
-        public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
+        public async Task<IEnumerable<Category>> GetAllCategoriesAsync(CancellationToken cancellation)
         {
-            return await _db.Categories
+            return await _db.Categories.AsNoTracking()
             .Include(c => c.SubCategories)
-            .ToListAsync();
+            .ToListAsync(cancellation);
         }
 
         // Update Category

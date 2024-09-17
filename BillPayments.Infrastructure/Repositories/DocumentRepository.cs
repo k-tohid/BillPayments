@@ -40,12 +40,12 @@ namespace BillPayments.Infrastructure.Repositories
 
         public async Task<IEnumerable<Document>> GetAllDocumentsAsync()
         {
-            return await _db.Documents.Include(d => d.Category).ToListAsync();
+            return await _db.Documents.Include(d => d.Category).AsSplitQuery().ToListAsync();
         }
 
         public async Task<IEnumerable<Document>> GetAllDocumentsByCategoryIdAsync(int categoryId)
         {
-            return await _db.Documents.Where(d => d.CategoryId == categoryId).ToListAsync();
+            return await _db.Documents.Where(d => d.CategoryId == categoryId).AsSplitQuery().ToListAsync();
         }
 
 

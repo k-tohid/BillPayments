@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ReadCategoryDTO>
+
+
+@foreach (var category in Model)
+{
+    <li>
+        
+        <a href="#" class="category-item" data-id="@category.Id">@category.Title</a>
+
+        @if (category.SubCategories != null && category.SubCategories.Any())
+        {
+            <ul>
+                @foreach (var subCategory in category.SubCategories)
+                {
+                    @await Html.PartialAsync("TreePartial", subCategory)
+                }
+            </ul>
+        }
+    </li>
+}
+
+
